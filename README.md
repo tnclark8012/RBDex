@@ -10,6 +10,13 @@ Expanded features include:
 
 Navigation: [Website](https://may8th1995.github.io/RBDex/) | [Client repository](https://github.com/May8th1995/RB-Client) | **Dex repository**
 
+Offline data package
+------------------------------------------------------------------------
+
+The versioned [`@runbuncalc/rbdex-data` artifact](DATA-PACKAGE.md) exports abilities
+and inherited learnsets for bundling into offline tools, without the website or
+client runtime. Run `npm pack` to build it, or use a `data-v*` GitHub Release.
+
 Features
 ------------------------------------------------------------------------
 
