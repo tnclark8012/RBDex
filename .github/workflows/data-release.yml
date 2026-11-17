@@ -1,0 +1,26 @@
+name: Release offline data
+
+on:
+  push:
+    tags:
+      - 'data-v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check version matches tag
+        run: test "$GITHUB_REF_NAME" = "data-v$(node -p "require('./package.json').version")"
+      - name: Pack data and corresponding source
+        run: npm pack
+      - name: Publish versioned artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" runbuncalc-rbdex-data-*.tgz --verify-tag --title "Offline data $GITHUB_REF_NAME" --notes-file DATA-PACKAGE.md
