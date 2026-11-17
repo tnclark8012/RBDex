@@ -46,7 +46,7 @@ if (require.main === module) {
   const dist = path.join(root, 'dist');
   fs.mkdirSync(dist, {recursive: true});
   fs.writeFileSync(path.join(dist, 'pokedex.json'), JSON.stringify(pokedex) + '\n');
-  fs.writeFileSync(path.join(dist, 'index.cjs'), "exports.pokedex = require('./pokedex.json');\n");
+  fs.writeFileSync(path.join(dist, 'index.cjs'), "exports.pokedex = require('./pokedex.json');\nexports.spriteIds = require('./sprite-ids.json');\n");
   fs.writeFileSync(path.join(dist, 'index.d.ts'), [
     'export interface PokedexEntry {',
     '  readonly id: string;',
@@ -56,6 +56,7 @@ if (require.main === module) {
     '  readonly moves: readonly string[];',
     '}',
     'export declare const pokedex: Readonly<Record<string, PokedexEntry | undefined>>;',
+    'export declare const spriteIds: Readonly<Record<string, string | undefined>>;',
     '',
   ].join('\n'));
   console.log(`Built offline data for ${Object.keys(pokedex).length} species.`);

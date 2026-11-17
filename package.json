@@ -1,6 +1,6 @@
 {
   "name": "@runbuncalc/rbdex-data",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Offline Run & Bun abilities and learnsets generated from RBDex",
   "license": "AGPL-3.0-only",
   "repository": {
@@ -9,6 +9,9 @@
   },
   "main": "dist/index.cjs",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=22"
+  },
   "files": [
     "dist/",
     "package/",
@@ -19,8 +22,9 @@
     "DATA-PACKAGE.md"
   ],
   "scripts": {
-    "build": "node package/build.cjs",
-    "test": "node --test package/build.test.cjs",
-    "prepack": "npm test && npm run build"
+    "build": "node package/build.cjs && node package/build-sprites.cjs",
+    "test": "node --test package/*.test.cjs",
+    "prepare": "npm run build",
+    "prepack": "npm test"
   }
 }
