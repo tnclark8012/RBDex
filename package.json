@@ -1,6 +1,6 @@
 {
   "name": "@runbuncalc/rbdex-data",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Offline Run & Bun abilities and learnsets generated from RBDex",
   "license": "AGPL-3.0-only",
   "repository": {
