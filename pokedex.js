@@ -19890,7 +19890,7 @@ exports.BattlePokedex = {
         },
         abilities: {
             "0": "Cursed Body",
-            H: "Water Aborb"
+            H: "Water Absorb"
         },
         heightm: 1.2,
         weightkg: 33,
@@ -19914,7 +19914,7 @@ exports.BattlePokedex = {
         },
         abilities: {
             "0": "Cursed Body",
-            H: "Water Aborb"
+            H: "Water Absorb"
         },
         heightm: 2.2,
         weightkg: 135,
